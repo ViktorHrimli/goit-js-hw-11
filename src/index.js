@@ -1,14 +1,14 @@
-import SimpleLightbox from 'simplelightbox/dist/simple-lightbox.esm';
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 import _ from 'lodash.debounce';
-
 import { refs } from './js/refs';
 import createCard from './js/renderCard';
 import { onFetchArticle } from './js/fetchAx';
+
 let query = '';
 let PAGE = 1;
 //
+
 export function card(data) {
   data.map((item, indx) => {
     const {
@@ -33,15 +33,15 @@ export function card(data) {
         largeImageURL
       )
     );
-    let gallery = new SimpleLightbox('.gallery a', {
-      captions: true,
-      captionSelector: 'img',
-      captionDelay: 250,
-      overlayOpacity: 0.9,
-      close: false,
-    });
-    gallery.on('show.simplelightbox');
   });
+  let gallery = new SimpleLightbox('.gallery a', {
+    captions: true,
+    captionSelector: 'img',
+    captionDelay: 250,
+    overlayOpacity: 0.9,
+    close: false,
+  });
+  gallery.on('show.simplelightbox');
 }
 
 function onSmoothScroll() {
