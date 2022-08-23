@@ -1,16 +1,17 @@
-export default function createCard(
-  url,
-  likes,
-  views,
-  comments,
-  downloads,
-  tags,
-  largeImg
-) {
+export default function createCard(item) {
+  const {
+    largeImageURL,
+    webformatURL,
+    likes,
+    views,
+    comments,
+    downloads,
+    tags,
+  } = item;
   return `
     <div class="photo-card">
-     <a href="${largeImg}">
-        <img class="gallery__img" src="${url}" alt="${tags}" />
+     <a href="${largeImageURL}">
+        <img class="gallery__img" src="${webformatURL}" alt="${tags}" />
         </a>
         <div class="info">
             <p class="info-item">

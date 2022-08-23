@@ -16,28 +16,7 @@ const scroll = new OnlyScroll(window, {
 
 export function card(data) {
   data.map((item, indx) => {
-    const {
-      largeImageURL,
-      webformatURL,
-      likes,
-      views,
-      comments,
-      downloads,
-      tags,
-    } = item;
-
-    refs.galery.insertAdjacentHTML(
-      'beforeend',
-      createCard(
-        webformatURL,
-        likes,
-        views,
-        comments,
-        downloads,
-        tags,
-        largeImageURL
-      )
-    );
+    refs.galery.insertAdjacentHTML('beforeend', createCard(item));
   });
   let gallery = new SimpleLightbox('.gallery a', {
     captions: true,
