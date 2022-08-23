@@ -18,6 +18,7 @@ export function card(data) {
   data.map((item, indx) => {
     refs.galery.insertAdjacentHTML('beforeend', createCard(item));
   });
+  // для меня загадка почему библиотека работает только в этой функции)
   let gallery = new SimpleLightbox('.gallery a', {
     captions: true,
     captionSelector: 'img',
