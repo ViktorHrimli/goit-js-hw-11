@@ -1,5 +1,6 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
+import OnlyScroll from 'only-scrollbar';
 import _ from 'lodash.debounce';
 import { refs } from './js/refs';
 import createCard from './js/renderCard';
@@ -7,6 +8,11 @@ import { onFetchArticle } from './js/fetchAx';
 
 let query = '';
 let PAGE = 1;
+
+const scroll = new OnlyScroll(window, {
+  damping: 0.2,
+  eventContainer: document.scrollingElement,
+});
 
 export function card(data) {
   data.map((item, indx) => {
