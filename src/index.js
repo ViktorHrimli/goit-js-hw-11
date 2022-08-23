@@ -5,14 +5,11 @@ import _ from 'lodash.debounce';
 import { refs } from './js/refs';
 import createCard from './js/renderCard';
 import { onFetchArticle } from './js/fetchAx';
-
+import { FetchBictchWorking } from './js/fetchAx';
 let query = '';
 let PAGE = 1;
 
-const scroll = new OnlyScroll(window, {
-  damping: 0.2,
-  eventContainer: document.scrollingElement,
-});
+let classIsCool = new FetchBictchWorking();
 
 export function card(data) {
   data.map((item, indx) => {
@@ -45,13 +42,17 @@ function handleOnSubmit(event) {
   event.preventDefault();
   const { searchQuery } = event.target;
   query = searchQuery.value;
-  onFetchArticle(query, PAGE);
+  classIsCool.onFetchArticle(query, PAGE);
   onSmoothScroll();
 }
 
 function onEndnessScroll() {
+  const scroll = new OnlyScroll(window, {
+    damping: 0.2,
+    eventContainer: document.scrollingElement,
+  });
   if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
-    onFetchArticle(query, (PAGE += 1));
+    classIsCool.onFetchArticle(query, (PAGE += 1));
   }
 }
 
