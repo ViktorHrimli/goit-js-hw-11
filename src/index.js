@@ -7,7 +7,6 @@ import { onFetchArticle } from './js/fetchAx';
 
 let query = '';
 let PAGE = 1;
-//
 
 export function card(data) {
   data.map((item, indx) => {
@@ -67,9 +66,6 @@ function handleOnSubmit(event) {
 function onEndnessScroll() {
   if (window.innerHeight + window.pageYOffset >= document.body.offsetHeight) {
     onFetchArticle(query, (PAGE += 1));
-    console.log(window.innerHeight);
-    console.log(window.pageXOffset);
-    console.log(document.body.offsetHeight);
   }
 }
 
